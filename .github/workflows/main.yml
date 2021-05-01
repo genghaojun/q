@@ -1,0 +1,37 @@
+name: build_ErfanGSIs
+
+on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
+  watch:
+    types: [started]
+    
+env:
+  ROM_URL: https://hkdl.exthmui.cf/exthmui/h930/exthm-10.0-20210306-UNOFFICIAL-SNAPSHOT-h930.zip
+  ROM_NAME: Generic
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@master
+           
+       - name: Initialization environment
+         run: |
+            sudo -E apt-get -qq sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update sudo update-java-alternatives -s java-8-oracle echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  wget
+       
+       - name: Clone ErfanGSI Source Code
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGS
