@@ -30,9 +30,7 @@ jobs:
        - name: Initialization environment
          run: |
             sudo -E apt-get -qq sudo add-apt-repository ppa:webupd8team/java
-
-apt-get update update-java-alternatives -s java-8-oracle echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-  wget
+            apt-get update update-java-alternatives -s java-8-oracle echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true wget
        
        - name: Clone ErfanGSI Source Code
          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
